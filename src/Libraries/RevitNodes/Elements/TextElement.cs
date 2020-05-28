@@ -121,6 +121,7 @@ namespace Revit.Elements
         /// <param name="size"></param>
         /// <param name="location"></param>
         /// <returns></returns>
+        [Obsolete]
         private PathGeometry CreateText(string text, bool bold, bool italic, FontFamily family, double size, System.Windows.Point location)
         {
             System.Windows.FontStyle fontStyle = FontStyles.Normal;
