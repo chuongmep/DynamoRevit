@@ -92,6 +92,9 @@
                   "path": "RevitNodes.Revit.Elements.AdaptiveComponent"
                 },
                 {
+                  "path": "RevitNodes.Revit.Elements.AppearanceAssetElement"
+                },
+                {
                   "path": "RevitNodes.Revit.Elements.Area"
                 },
                 {
@@ -483,10 +486,14 @@
               "iconUrl": "",
               "elementType": "group",
               "include": [
-                {
+               {
                   "path": "RevitNodes.Revit.GeometryReferences",
                   "inclusive": false
-                }
+               },
+               {
+                  "path": "RevitNodes.Revit.References",
+                  "inclusive": false
+               }
               ]
             },
             {
