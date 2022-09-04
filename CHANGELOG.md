@@ -1,3 +1,27 @@
+## 0.4.9
+* Make exception message of SetRenderingAssetTextureImage more friendly
+
+## 0.4.8
+* Update Dynamo For Revit to support 64-bit ElementId
+
+## 0.4.7
+* Make dynamo nodes for material texture easier for end users to use
+
+## 0.4.6
+* keep AssemblySharedInfo version same with dynamo core
+
+## 0.4.5
+* Upgrade DynamoCore  to 2.15.0.5383.
+
+## 0.4.4
+* Fix bug cannot set parameter value of integer type in Dynamo.
+
+## 0.4.3
+* Fix bug cannot set parameter value of integer type in Dynamo.
+
+## 0.4.2
+* Add 3 new nodes - Material.AppearanceAssetElement, AppearanceAssetElement.GetRenderingAssetTextureImages, AppearanceAssetElement.SetRenderingAssetTextureImage
+
 ## 0.4.1
 * Update Foreground Color For Selection by Category Nodes.
 * Update ComboBox Style for Selection by Category Nodes.

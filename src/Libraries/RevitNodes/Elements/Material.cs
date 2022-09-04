@@ -107,7 +107,7 @@ namespace Revit.Elements
         /// Get Material Name
         /// </summary>
         /// <returns></returns>
-        public string Name
+        new public string Name
         {
             get { return this.InternalMaterial.Name; }
         }
@@ -179,11 +179,11 @@ namespace Revit.Elements
         /// <summary>
         /// Get cut pattern id
         /// </summary>
-        public int CutPatternId
+        public long CutPatternId
         {
             get
             {
-                return this.InternalMaterial.CutForegroundPatternId.IntegerValue;
+                return this.InternalMaterial.CutForegroundPatternId.Value;
             }
         }
 
@@ -289,7 +289,28 @@ namespace Revit.Elements
             }
         }
 
+        /// <summary>
+        /// Get AppearanceAssetElement of this Material.
+        /// </summary>
+        public AppearanceAssetElement AppearanceAssetElement
+        {
+            get
+            {
+                // Get the active Document
+                Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
+                if (this.InternalMaterial.AppearanceAssetId != Autodesk.Revit.DB.ElementId.InvalidElementId)
+                {
+                    Autodesk.Revit.DB.AppearanceAssetElement appearance = document.GetElement(this.InternalMaterial.AppearanceAssetId) as Autodesk.Revit.DB.AppearanceAssetElement;
+
+                    return (AppearanceAssetElement)appearance.ToDSType(true);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
         #endregion
 

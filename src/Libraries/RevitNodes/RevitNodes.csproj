@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DynamoServices">
-      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\net48\DynamoServices.dll</HintPath>
+      <HintPath>$(PACKAGESPATH)\DynamoVisualProgramming.DynamoServices\lib\netstandard2.0\DynamoServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -76,6 +76,7 @@
     <Compile Include="Application\Document.cs" />
     <Compile Include="Application\Warning.cs" />
     <Compile Include="Application\FamilyDocument.cs" />
+    <Compile Include="Elements\AppearanceAssetElement.cs" />
     <Compile Include="Elements\Area.cs" />
     <Compile Include="Elements\Category.cs" />
     <Compile Include="Elements\Ceiling.cs" />

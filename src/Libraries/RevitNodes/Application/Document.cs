@@ -113,7 +113,7 @@ namespace Revit.Application
         /// </summary>
         /// <param name="fullPurge">Similar to clicking the purge button multiple times in Revit, the node will repeatedly purge until there is nothing left to remove.</param>
         /// <returns>Purged element ids</returns>
-        public List<int> PurgeUnused(bool fullPurge = false)
+        public List<long> PurgeUnused(bool fullPurge = false)
         {
             List<ElementId> purgedElementIds = new List<ElementId>();
             TransactionManager.Instance.EnsureInTransaction(this.InternalDocument);
@@ -126,7 +126,7 @@ namespace Revit.Application
             if (purgedElementIds.Count == 0)
                 throw new InvalidOperationException(Properties.Resources.NoElementsToPurge);
 
-            return purgedElementIds.Select(x => x.IntegerValue).ToList();
+            return purgedElementIds.Select(x => x.Value).ToList();
         }
 
         private List<ElementId> PurgeMaterials()
@@ -189,7 +189,7 @@ namespace Revit.Application
         private List<Autodesk.Revit.DB.ElementId> PurgeMaterialAssets(List<Autodesk.Revit.DB.ElementId> elementIds)
         {
             List<ElementId> appearanceAssetIds = new FilteredElementCollector(this.InternalDocument)
-                .OfClass(typeof(AppearanceAssetElement))
+                .OfClass(typeof(Autodesk.Revit.DB.AppearanceAssetElement))
                 .ToElementIds()
                 .ToList();
 

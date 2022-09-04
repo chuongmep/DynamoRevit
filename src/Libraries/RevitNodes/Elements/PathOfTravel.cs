@@ -300,7 +300,7 @@ namespace Revit.Elements
       /// </summary>
       /// <param name="rvtView">Floor plan view for which rooms will be used to retrieve longest paths to the given exit points.</param>
       /// <param name="endPoints">List of end (exit) points.</param>
-      /// <returns>List of PathOfTravel elements corresponding to the longest of shortest exit paths from rooms.</returnsO
+      /// <returns>List of PathOfTravel elements corresponding to the longest of shortest exit paths from rooms.</returns>
       /// 
       private static PathOfTravel[] InternalLongestOfShortestExitPaths(Rvt.View rvtView, IEnumerable<XYZ> endPoints)
       {
@@ -340,14 +340,14 @@ namespace Revit.Elements
          catch (Exception e)
          {
             //unregister the elements from the element life cycle manager and delete the elements
-            var elementManager = ElementIDLifecycleManager<int>.GetInstance();
+            var elementManager = ElementIDLifecycleManager<long>.GetInstance();
             if (pathsOfTravel != null)
             {
                foreach (var path in pathsOfTravel)
                {
                   if (path != null)
                   {
-                     elementManager.UnRegisterAssociation(path.InternalElementId.IntegerValue, path);
+                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.Value, path);
                      Document.Delete(path.InternalElementId);
                   }
                }
@@ -397,14 +397,14 @@ namespace Revit.Elements
          catch (Exception e)
          {
             // unregister the elements from the element life cycle manager and delete the elements
-            var elementManager = ElementIDLifecycleManager<int>.GetInstance();
+            var elementManager = ElementIDLifecycleManager<long>.GetInstance();
             if (pathsOfTravel != null)
             {
                foreach (var path in pathsOfTravel)
                {
                   if (path != null)
                   {
-                     elementManager.UnRegisterAssociation(path.InternalElementId.IntegerValue, path);
+                     _ = elementManager.UnRegisterAssociation(path.InternalElementId.Value, path);
                      Document.Delete(path.InternalElementId);
                   }
                }
